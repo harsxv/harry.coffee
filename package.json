@@ -16,7 +16,7 @@
     "refresh": "curl -X POST http://localhost:8000/__refresh",
     "setup": "node .contentful/setup.js",
     "gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./.contentful/landing-page-model-and-content.json'",
-    "build": "gatsby build",
+    "build": "CONTENTFUL_SPACE_ID=${{ CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ CONTENTFUL_ACCESS_TOKEN }} gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "prettier": "prettier --write .",

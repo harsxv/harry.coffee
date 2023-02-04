@@ -15,9 +15,7 @@ export default function Layout(props) {
       <main className={styles.main}>{props.children}</main>
       <footer className={styles.footer}>
         <a href="https://gatsbyjs.com">Built with Gatsby</a>
-        <a href="https://github.com/gatsbyjs/gatsby-starter-landing-page">
-          View Codes on GitHub
-        </a>
+        <a href="https://github.com/harsxv/harry.coffee">View Codes on GitHub</a>
       </footer>
     </div>
   );
