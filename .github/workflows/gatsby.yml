@@ -71,8 +71,9 @@ jobs:
           path: ./public
 
   # Deployment job
-  deploy:
+  deployment:
     runs-on: ubuntu-latest
+    environment: deploy
     needs: build
     steps:
     - name: Download artifact
