@@ -82,5 +82,6 @@ jobs:
         path: ./public
         remote_path: /var/www/html/
         remote_host: ${{ secrets.HOST }}
+        remote_port: ${{ secrets.PORT }}
         remote_user: ${{ secrets.USER }}
         remote_key: ${{ secrets.PRIVATE_KEY }}
