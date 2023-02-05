@@ -56,14 +56,9 @@ jobs:
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Add step something
-        run: |
-          echo ${{ vars.SECRETS_DUMMY }} > secretsdummy
-          cat secretsdummy
       - name: Build with Gatsby edited
         run: |
-          CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          SECRETS_DUMMY=${{ vars.SECRET_DUMMY }}
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
