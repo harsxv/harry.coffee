@@ -58,7 +58,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Add step something
         run: |
-          echo ${{ secrets.SECRETS_DUMMY }} > secretsdummy
+          echo ${{ vars.SECRETS_DUMMY }} > secretsdummy
           cat secretsdummy
       - name: Build with Gatsby edited
         run: |
