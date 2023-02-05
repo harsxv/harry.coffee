@@ -47,6 +47,8 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Add step something
+        run: echo `hostname`
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
