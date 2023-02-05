@@ -49,11 +49,11 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Add step something
         run: echo `hostname`
-      - name: Build with Gatsby
+      - name: Build with Gatsby edited
         env:
           PREFIX_PATHS: 'true'
         run: |
-          CONTENTFUL_SPACE_ID=dumm1dumm1
+          CONTENTFUL_SPACE_IDx=dumm1dumm1
           CONTENTFUL_ACCESS_TOKEN=t35tt35tt35tt35t
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
