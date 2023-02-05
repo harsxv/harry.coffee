@@ -50,11 +50,9 @@ jobs:
       - name: Add step something
         run: echo `hostname`
       - name: Build with Gatsby edited
-        env:
-          PREFIX_PATHS: 'true'
-          CONTENTFUL_SPACE_IDx: 'dumm1dumm1'
-          CONTENTFUL_ACCESS_TOKEN: 't35tt35tt35tt35t'
         run: |
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} | tee -a env.production
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} | tee -a env.production
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
