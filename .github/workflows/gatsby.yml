@@ -57,10 +57,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Gatsby edited
-        run: |
-          CONTENTFUL_SPACE_ID=${{ vars.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_ACCESS_TOKEN=${{ vars.CONTENTFUL_ACCESS_TOKEN }}
-          ${{ steps.detect-package-manager.outputs.manager }} run build
+        run: CONTENTFUL_SPACE_ID=${{ vars.CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ vars.CONTENTFUL_ACCESS_TOKEN }} ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
