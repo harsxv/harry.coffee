@@ -52,9 +52,9 @@ jobs:
       - name: Build with Gatsby edited
         env:
           PREFIX_PATHS: 'true'
+          CONTENTFUL_SPACE_IDx: 'dumm1dumm1'
+          CONTENTFUL_ACCESS_TOKEN: 't35tt35tt35tt35t'
         run: |
-          CONTENTFUL_SPACE_IDx=dumm1dumm1
-          CONTENTFUL_ACCESS_TOKEN=t35tt35tt35tt35t
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
