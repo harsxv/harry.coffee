@@ -62,7 +62,7 @@ jobs:
         run: |
           CONTENTFUL_SPACE_ID=dumm1dumm1
           CONTENTFUL_ACCESS_TOKEN=t35tt35tt35tt35t
-          ${{ steps.detect-package-manager.outputs.manager }} run build
+          npm run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
