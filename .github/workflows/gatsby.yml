@@ -57,7 +57,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Add step something
-        run: echo `hostname`
+        run: echo ${{ secrets.SECRETS_DUMMY }}
       - name: Build with Gatsby edited
         run: |
           CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
