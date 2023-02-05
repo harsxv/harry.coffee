@@ -44,15 +44,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: x
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Add step something
         run: echo `hostname`
       - name: Build with Gatsby edited
         run: |
-          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} | tee -a env.production
-          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} | tee -a env.production
+          CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
