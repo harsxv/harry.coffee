@@ -20,6 +20,7 @@ defaults:
 jobs:
   # Build job
   build:
+    environment: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -56,14 +57,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Gatsby
-        environment: build
         env:
           PREFIX_PATHS: 'true'
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: |
-          CONTENTFUL_SPACE_ID="$CONTENTFUL_SPACE_ID"
-          CONTENTFUL_ACCESS_TOKEN="$CONTENTFUL_ACCESS_TOKEN"
+          CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Generate and upload artifact
         uses: actions/upload-pages-artifact@v1
