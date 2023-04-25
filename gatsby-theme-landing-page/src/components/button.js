@@ -5,7 +5,7 @@ import * as styles from "./button.module.css";
 
 export default function Button({ href, text, children, variant = "primary" }) {
   const buttonStyle =
-    variant === "primary" ? styles.buttonPrimary : styles.buttonSecondary;
+    variant === "primary" ? styles.buttonPrimary;
 
   if (isAbsoluteURL(href)) {
     return (
@@ -14,10 +14,4 @@ export default function Button({ href, text, children, variant = "primary" }) {
       </a>
     );
   }
-
-  return (
-    <Link className={buttonStyle} to={href}>
-      {text || children}
-    </Link>
-  );
 }
